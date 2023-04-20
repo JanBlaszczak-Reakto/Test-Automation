@@ -22,7 +22,6 @@ class SendPhotoTest():
         photo1 = self.driver.find_element(By.XPATH, "//span[text()='Send command: Create Photo #1']")
         photo1.click()
 
-        time.sleep(5)
 
         photo2 = self.driver.find_element(By.XPATH, "//span[text()='Send command: Create Photo #2']")
         photo2.click()
