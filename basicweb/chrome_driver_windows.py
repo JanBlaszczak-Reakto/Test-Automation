@@ -1,5 +1,6 @@
 from selenium import  webdriver
 from selenium.webdriver.chrome.service import Service as Service
+import time
 
 class RunChromeTest():
 
@@ -8,7 +9,7 @@ class RunChromeTest():
         #Instantiate Browser
         driver = webdriver.Chrome(service=chrome_service)
         #Open the provided URL
-        driver.get("https://www.letskodeit.com")
-
+        driver.get("http://localhost:2060/")
+        time.sleep(10)
 untest = RunChromeTest()
 untest.test()
