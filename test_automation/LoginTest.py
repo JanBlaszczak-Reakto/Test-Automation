@@ -29,8 +29,8 @@ class LoginTest():
 
     def logIn(self):
 
-        confirm = self.driver.find_element(By.XPATH, "//span[text()='Confirm']")
-        confirm.click()
+        logInButton = self.driver.find_element(By.XPATH, "//button")
+        logInButton.click()
         time.sleep(1)
 
     def logOut(self):
