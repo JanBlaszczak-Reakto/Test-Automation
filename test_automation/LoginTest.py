@@ -45,7 +45,6 @@ class PositiveLoginTest():
         avatar.click()
         logOut = self.driver.find_element(By.XPATH, "//a[@href='/login']")
         logOut.click()
-
         time.sleep(2)
 
     def executeAllMethods(self):
@@ -66,7 +65,6 @@ class NegativeLoginTest():
     def openService(self):
 
         servisURL = 'https://vuehost.local:8082/login'
-
         self.driver.implicitly_wait(5)
         self.driver.get(servisURL)
         self.driver.maximize_window()
@@ -98,10 +96,7 @@ class NegativeLoginTest():
             print('User:' + str(self.userName) + ' is Correct')
 
         except:
-
             print('User: ' + str(self.userName) + ' is not Found')
-
-
     def executeAllMethods(self):
 
         self.openService()
@@ -109,19 +104,13 @@ class NegativeLoginTest():
         self.password()
         self.logIn()
         self.findAvatar()
-
-
         time.sleep(2)
 
-
-
-
-
-# runTest = PositiveLoginTest()
-# runTest.executeAllMethods()
-# runTest.logOut()
-# runTest = NegativeLoginTest()
-# runTest.executeAllMethods()
+runTest = PositiveLoginTest()
+runTest.executeAllMethods()
+runTest.logOut()
+runTest = NegativeLoginTest()
+runTest.executeAllMethods()
 
 
 
