@@ -33,7 +33,7 @@ class UserRolesAcces():
     def goDasboard(self):
 
         try:
-            self.test.driver.find_element(By.XPATH,"//div[text()='Dasboard']").click()
+            self.test.driver.find_element(By.XPATH,"//div[text()='Dashboard']").click()
             time.sleep(1)
             self.test.driver.back()
             print("You have access to Dashboard")

@@ -1,6 +1,11 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+URL=os.getenv('FRONT_URL')
 
 class PositiveLoginTest():
 
@@ -10,8 +15,8 @@ class PositiveLoginTest():
 
     def openService(self):
 
-        servisURL = 'https://vuehost.local:8082/login'
 
+        servisURL = URL
         self.driver.implicitly_wait(5)
         self.driver.get(servisURL)
         self.driver.maximize_window()
@@ -26,7 +31,7 @@ class PositiveLoginTest():
     def password(self):
 
         passwordField = self.driver.find_element(By.XPATH,"//div[@id='q-app']/div/div/main/div[2]/form/label[2]")
-        passwordField.send_keys('jasiek2810')
+        passwordField.send_keys('pilot')
         time.sleep(1)
 
     def logIn(self):
@@ -71,7 +76,7 @@ class NegativeLoginTest():
 
     def email(self):
 
-        self.userName= 'pilot@reakt.eu'
+        self.userName= 'random@reakto.eu'
         emailField = self.driver.find_element(By.XPATH, "//div[@id='q-app']//label[1]")
         emailField.send_keys(self.userName)
         time.sleep(1)
@@ -79,7 +84,7 @@ class NegativeLoginTest():
     def password(self):
 
         passwordField = self.driver.find_element(By.XPATH,"//div[@id='q-app']/div/div/main/div[2]/form/label[2]")
-        passwordField.send_keys('jasiek2810')
+        passwordField.send_keys('random')
         time.sleep(1)
 
     def logIn(self):
@@ -106,11 +111,11 @@ class NegativeLoginTest():
         self.findAvatar()
         time.sleep(2)
 
-runTest = PositiveLoginTest()
-runTest.executeAllMethods()
-runTest.logOut()
-runTest = NegativeLoginTest()
-runTest.executeAllMethods()
+# runTest = PositiveLoginTest()
+# runTest.executeAllMethods()
+# runTest.logOut()
+# runTest = NegativeLoginTest()
+# runTest.executeAllMethods()
 
 
 
