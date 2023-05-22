@@ -33,9 +33,9 @@ class UserRolesAcces():
     def goDasboard(self):
 
         try:
-            self.test.driver.find_element(By.XPATH,"//div[text()='Dashboard']").click()
+            self.test.driver.find_element(By.XPATH,"//div[2]/div[text()='Dashboard']").click()
             time.sleep(1)
-            self.test.driver.back()
+            # self.test.driver.back()
             print("You have access to Dashboard")
 
         except:
@@ -106,6 +106,17 @@ class UserRolesAcces():
 
         except:
             print("Clients not found because you don't have access")
+
+    def goAlerts(self):
+
+        try:
+            self.test.driver.find_element(By.XPATH, "//div[text()='Alerts']").click()
+            time.sleep(1)
+            self.test.driver.back()
+            print("You have access to Alerts")
+
+        except:
+            print("Alerts not found because you don't have access")
 
     def goDictionaries(self):
 
@@ -184,7 +195,7 @@ class UserRolesAcces():
 runTest = UserRolesAcces()
 runTest.logIn()
 runTest.userNameFind()
-runTest.loginEvent()
+# runTest.loginEvent()
 runTest.goDasboard()
 runTest.goAgencies()
 runTest.goHubs()
@@ -192,6 +203,7 @@ runTest.goVenues()
 runTest.goUAV()
 runTest.goMission()
 runTest.goClient()
+runTest.goAlerts()
 runTest.goDictionaries()
 runTest.goUsers()
 runTest.goLoginEvents()
