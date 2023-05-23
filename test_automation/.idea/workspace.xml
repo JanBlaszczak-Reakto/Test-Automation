@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3de0b37-f49e-43e6-a8f3-d10bf3546aca" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LoginTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/LoginTest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserRolesAcces.py" beforeDir="false" afterPath="$PROJECT_DIR$/UserRolesAcces.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +37,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/dell/Desktop/SeleniumWDTest/test_automation"
+    "last_opened_file_path": "C:/Users/dell/workspace_python/SeleniumWDTest/test_automation"
   }
 }]]></component>
   <component name="RunManager" selected="Python.test">

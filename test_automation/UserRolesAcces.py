@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
-from LoginTest import PositiveLoginTest,NegativeLoginTest
+from LoginTest import PositiveLoginTest
 
 class UserRolesAcces():
 
@@ -15,7 +15,7 @@ class UserRolesAcces():
 
         findName = self.driver.find_element(By.XPATH, '//div[@id="q-app"]/div/header/div[1]/div[3]')
         readName = findName.text
-        print('You are logged in as: ' + str(readName))
+        print('You are logged in as: ' + str(readName)+'\n')
 
     def loginEvent(self):
 
@@ -89,7 +89,7 @@ class UserRolesAcces():
 
         try:
             self.driver.find_element(By.XPATH,"//div[text()='Missions']").click()
-            time.sleep(2)
+            time.sleep(1)
             self.driver.back()
             print("You have access to Missions")
 
@@ -100,7 +100,7 @@ class UserRolesAcces():
 
         try:
             self.driver.find_element(By.XPATH,"//div[text()='Clients']").click()
-            time.sleep(2)
+            time.sleep(1)
             self.driver.back()
             print("You have access to Clients")
 
