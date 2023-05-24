@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
-from LoginTest import PositiveLoginTest
+from LogIn import PositiveLoginTest
 from UserRolesAcces import UserRolesAcces
 
 class Test():
@@ -18,7 +18,7 @@ class Test():
 
     def logInAdmin(self):
         test = PositiveLoginTest(self.driver)
-        test.executeAllMethods('administrator@reakto.eu','administrator')
+        test.executeAllMethods('admin@reakto.eu','admin')
 
     def logInDev(self):
         test = PositiveLoginTest(self.driver)
@@ -31,6 +31,10 @@ class Test():
     def logInPilot(self):
         test = PositiveLoginTest(self.driver)
         test.executeAllMethods('pilot@reakto.eu','pilot')
+
+    def logInPilotCoord(self):
+        test = PositiveLoginTest(self.driver)
+        test.executeAllMethods('coord@reakto.eu','coord')
 
     def logInOperation(self):
         test = PositiveLoginTest(self.driver)
@@ -123,6 +127,12 @@ runTest.logInSeller()
 runTest.userRolesAcces()
 runTest.logOut()
 runTest.logInSerwis()
+runTest.userRolesAcces()
+runTest.logOut()
+runTest.logInPilot()
+runTest.userRolesAcces()
+runTest.logOut()
+runTest.logInPilotCoord()
 runTest.userRolesAcces()
 runTest.logOut()
 

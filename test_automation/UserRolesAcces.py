@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
-from LoginTest import PositiveLoginTest
+from LogIn import PositiveLoginTest
 
 class UserRolesAcces():
 
@@ -107,6 +107,17 @@ class UserRolesAcces():
         except:
             print("Clients not found because you don't have access")
 
+    def goClientevent(self):
+
+        try:
+            self.driver.find_element(By.XPATH,"//div[text()='Client Events']").click()
+            time.sleep(1)
+            self.driver.back()
+            print("You have access to Clients Event")
+
+        except:
+            print("Clients Event not found because you don't have access")
+
     def goAlerts(self):
 
         try:
@@ -186,6 +197,7 @@ class UserRolesAcces():
         self.goUAV()
         self.goMission()
         self.goClient()
+        self.goClientevent()
         self.goAlerts()
         self.goDictionaries()
         self.goUsers()
