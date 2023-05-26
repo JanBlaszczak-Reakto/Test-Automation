@@ -5,30 +5,32 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-URL=os.getenv('FRONT_URL')
 
-class PositiveLoginTest():
+
+class PositiveLoginTest:
 
     def __init__(self, driver):
-         self.driver = driver
-         self.userName = None
+        self.driver = driver
+        self.userName = None
+        self.URL=os.getenv('FRONT_URL')
+
 
     def openService(self):
 
 
-        servisURL = URL
+        servisURL = self.URL
         self.driver.implicitly_wait(5)
         self.driver.get(servisURL)
         self.driver.maximize_window()
 
-    def email(self,userName):
+    def fillUserNameField(self, userName):
 
         self.userName = userName
         emailField = self.driver.find_element(By.XPATH, "//div[@id='q-app']//label[1]")
         emailField.send_keys(self.userName)
         time.sleep(1)
 
-    def password(self, password):
+    def fillPasswordField(self, password):
 
         passwordField = self.driver.find_element(By.XPATH,"//div[@id='q-app']/div/div/main/div[2]/form/label[2]")
         passwordField.send_keys(password)
@@ -41,7 +43,6 @@ class PositiveLoginTest():
             logInButton.click()
             time.sleep(1)
             print('\nUser:' + str(self.userName) + ' is Correct\n')
-
         except:
             print('\nUser:' + str(self.userName) + ' is not Found\n')
 
@@ -53,12 +54,13 @@ class PositiveLoginTest():
         logOut.click()
         time.sleep(2)
 
-    def executeAllMethods(self, userName, password):
+    def executeLoginProcedure(self, userName, password):
 
         # self.openService()
-        self.email(userName)
-        self.password(password)
+        self.fillUserNameField(userName)
+        self.fillPasswordField(password)
         self.logIn()
+        # self.logOut()
 
 
 
@@ -109,7 +111,7 @@ class PositiveLoginTest():
 
 # runTest = PositiveLoginTest()
 # runTest.executeAllMethods()
-# runTest.logOut()
+
 # runTest = NegativeLoginTest()
 # runTest.executeAllMethods()
 
