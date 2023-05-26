@@ -1,44 +1,37 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
-from LogIn import PositiveLoginTest
+from LogInProcedure import PositiveLoginTest
 
 
-class UserRolesAcces():
+class UserRolesAccess:
 
     def __init__(self,driver):
         self.driver = driver
 
-
-
-
-    def userNameFind(self):
-
+    def findUserNameField(self):
         findName = self.driver.find_element(By.XPATH, '//div[@id="q-app"]/div/header/div[1]/div[3]')
         readName = findName.text
         print('You are logged in as: ' + str(readName)+'\n')
 
-    def loginEvent(self):
-
+    def loginEvent(self): #grabLastSuccessfullLoginTime
         time.sleep(1)
         self.driver.refresh()
         self.driver.find_element(By.XPATH, "//div[text()='Login events']").click()
         time.sleep(1)
         sortLoginDate = self.driver.find_element(By.XPATH, "//div[@id='q-app']//th[4]")
-        sortLoginDate.click()
+        sortLoginDate.click() #Two click because first sort is ascending
         sortLoginDate.click()
         time.sleep(1)
         findLoginDate = self.driver.find_element(By.XPATH, "//div[@id='q-app']//tr[1]/td[4]")
         readLoginDate = findLoginDate.text
         print ('Your login date is: ' + str(readLoginDate))
 
-    def goDasboard(self):
-
+    def checkAccessToDashboard(self):
         try:
             self.driver.find_element(By.XPATH,"//div[2]/div[text()='Dashboard']").click()
             time.sleep(1)
             print("You have access to Dashboard")
-
         except:
             print("Dashboard not found because you don't have access")
 
@@ -189,9 +182,9 @@ class UserRolesAcces():
 
     def runAll(self):
 
-        self.userNameFind()
+        self.findUserNameField()
         # runTest.loginEvent()
-        self.goDasboard()
+        self.checkAccessToDashboard()
         self.goAgencies()
         self.goHubs()
         self.goVenues()
@@ -214,7 +207,7 @@ class UserRolesAcces():
 
 
 #
-# runTest = UserRolesAcces()
+# runTest = UserRolesAccess()
 # runTest.logIn()
 # runTest.userNameFind()
 # # runTest.loginEvent()

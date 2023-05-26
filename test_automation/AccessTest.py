@@ -1,90 +1,88 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
-from LogIn import PositiveLoginTest
-from UserRolesAcces import UserRolesAcces
+from LogInProcedure import PositiveLoginTest
+from UserRolesAcces import UserRolesAccess
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
-URL=os.getenv('FRONT_URL')
 
-class Test():
+
+class AccessTest:
 
     def __init__(self):
         self.driver = webdriver.Chrome()
-
-
-
+        self.URL = os.getenv('FRONT_URL')
     def openService(self):
 
-        servisURL = URL
-        self.driver.get(servisURL)
+        serviceURL = self.URL
+        self.driver.get(serviceURL)
         self.driver.maximize_window()
         self.driver.implicitly_wait(5)
 
-    def logInAdmin(self):
+    def logInAsAdmin(self):
         test = PositiveLoginTest(self.driver)
-        test.executeAllMethods('admin@reakto.eu','admin')
+        test.executeLoginProcedure('admin@reakto.eu', 'admin')
 
-    def logInDev(self):
+    def logInAsDev(self):
         test = PositiveLoginTest(self.driver)
-        test.executeAllMethods('dev@reakto.eu','dev')
+        test.executeLoginProcedure('dev@reakto.eu', 'dev')
 
-    def logInQA(self):
+    def logInAsQA(self):
         test = PositiveLoginTest(self.driver)
-        test.executeAllMethods('qa@reakto.eu','qa')
+        test.executeLoginProcedure('qa@reakto.eu', 'qa')
 
-    def logInPilot(self):
+    def logInAsPilot(self):
         test = PositiveLoginTest(self.driver)
-        test.executeAllMethods('pilot@reakto.eu','pilot')
+        test.executeLoginProcedure('pilot@reakto.eu', 'pilot')
 
     def logInPilotCoord(self):
         test = PositiveLoginTest(self.driver)
-        test.executeAllMethods('coord@reakto.eu','coord')
+        test.executeLoginProcedure('coord@reakto.eu', 'coord')
 
     def logInOperation(self):
         test = PositiveLoginTest(self.driver)
-        test.executeAllMethods('operator@reakto.eu','operator')
+        test.executeLoginProcedure('operator@reakto.eu', 'operator')
 
 
     def logInSerwis(self):
         test = PositiveLoginTest(self.driver)
-        test.executeAllMethods('serwis@reakto.eu','serwis')
+        test.executeLoginProcedure('serwis@reakto.eu', 'serwis')
 
     def logInSeller(self):
         test = PositiveLoginTest(self.driver)
-        test.executeAllMethods('seller@reakto.eu','seller')
+        test.executeLoginProcedure('seller@reakto.eu', 'seller')
 
     def logInMarketing(self):
         test = PositiveLoginTest(self.driver)
-        test.executeAllMethods('marketing@reakto.eu','marketing')
+        test.executeLoginProcedure('marketing@reakto.eu', 'marketing')
 
     def logInAccount(self):
         test = PositiveLoginTest(self.driver)
-        test.executeAllMethods('account@reakto.eu','account')
+        test.executeLoginProcedure('account@reakto.eu', 'account')
 
     def logInPartner(self):
         test = PositiveLoginTest(self.driver)
-        test.executeAllMethods('partner@reakto.eu','partner')
+        test.executeLoginProcedure('partner@reakto.eu', 'partner')
 
     def logInClient(self):
         test = PositiveLoginTest(self.driver)
-        test.executeAllMethods('client@reakto.eu','client')
+        test.executeLoginProcedure('client@reakto.eu', 'client')
 
     def logInAgency(self):
         test = PositiveLoginTest(self.driver)
-        test.executeAllMethods('agency@reakto.eu','agency')
+        test.executeLoginProcedure('agency@reakto.eu', 'agency')
 
     def logInGuest(self):
         test = PositiveLoginTest(self.driver)
-        test.executeAllMethods('guest@reakto.eu','guest')
+        test.executeLoginProcedure('guest@reakto.eu', 'guest')
 
 
-    def userRolesAcces(self):
+    def checkUserRoleAccessRestrictions(self):
 
-        acces = UserRolesAcces(self.driver)
-        acces.runAll()
+        access = UserRolesAccess(self.driver)
+        access.runAll()
 
     def logOut(self):
 
@@ -98,49 +96,49 @@ class Test():
         except:
             print("Can't log out")
 
-runTest = Test()
+runTest = AccessTest() #umiescic w metodzie
 runTest.openService()
-runTest.logInAdmin()
-runTest.userRolesAcces()
+runTest.logInAsAdmin()
+runTest.checkUserRoleAccessRestrictions()
 runTest.logOut()
-runTest.logInQA()
-runTest.userRolesAcces()
+runTest.logInAsQA()
+runTest.checkUserRoleAccessRestrictions()
 runTest.logOut()
 runTest.logInAccount()
-runTest.userRolesAcces()
+runTest.checkUserRoleAccessRestrictions()
 runTest.logOut()
-runTest.logInDev()
-runTest.userRolesAcces()
+runTest.logInAsDev()
+runTest.checkUserRoleAccessRestrictions()
 runTest.logOut()
 runTest.logInAgency()
-runTest.userRolesAcces()
+runTest.checkUserRoleAccessRestrictions()
 runTest.logOut()
 runTest.logInClient()
-runTest.userRolesAcces()
+runTest.checkUserRoleAccessRestrictions()
 runTest.logOut()
 runTest.logInGuest()
-runTest.userRolesAcces()
+runTest.checkUserRoleAccessRestrictions()
 runTest.logOut()
 runTest.logInMarketing()
-runTest.userRolesAcces()
+runTest.checkUserRoleAccessRestrictions()
 runTest.logOut()
 runTest.logInOperation()
-runTest.userRolesAcces()
+runTest.checkUserRoleAccessRestrictions()
 runTest.logOut()
 runTest.logInPartner()
-runTest.userRolesAcces()
+runTest.checkUserRoleAccessRestrictions()
 runTest.logOut()
 runTest.logInSeller()
-runTest.userRolesAcces()
+runTest.checkUserRoleAccessRestrictions()
 runTest.logOut()
 runTest.logInSerwis()
-runTest.userRolesAcces()
+runTest.checkUserRoleAccessRestrictions()
 runTest.logOut()
-runTest.logInPilot()
-runTest.userRolesAcces()
+runTest.logInAsPilot()
+runTest.checkUserRoleAccessRestrictions()
 runTest.logOut()
 runTest.logInPilotCoord()
-runTest.userRolesAcces()
+runTest.checkUserRoleAccessRestrictions()
 runTest.logOut()
 
 
