@@ -1,41 +1,42 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
-from LoginTest import PositiveLoginTest,NegativeLoginTest
+from LogIn import PositiveLoginTest
+
 
 class UserRolesAcces():
 
-    def logIn(self):
-        self.test=PositiveLoginTest()
-        self.test.executeAllMethods()
+    def __init__(self,driver):
+        self.driver = driver
+
+
 
 
     def userNameFind(self):
 
-        findName = self.test.driver.find_element(By.XPATH, '//div[@id="q-app"]/div/header/div[1]/div[3]')
+        findName = self.driver.find_element(By.XPATH, '//div[@id="q-app"]/div/header/div[1]/div[3]')
         readName = findName.text
-        print('You are logged in as: ' + str(readName))
+        print('You are logged in as: ' + str(readName)+'\n')
 
     def loginEvent(self):
 
         time.sleep(1)
-        self.test.driver.refresh()
-        goLoginEvent = self.test.driver.find_element(By.XPATH, "//div[text()='Login events']").click()
+        self.driver.refresh()
+        self.driver.find_element(By.XPATH, "//div[text()='Login events']").click()
         time.sleep(1)
-        sortLoginDate = self.test.driver.find_element(By.XPATH, "//div[@id='q-app']//th[4]")
+        sortLoginDate = self.driver.find_element(By.XPATH, "//div[@id='q-app']//th[4]")
         sortLoginDate.click()
         sortLoginDate.click()
         time.sleep(1)
-        findLoginDate = self.test.driver.find_element(By.XPATH, "//div[@id='q-app']//tr[1]/td[4]")
+        findLoginDate = self.driver.find_element(By.XPATH, "//div[@id='q-app']//tr[1]/td[4]")
         readLoginDate = findLoginDate.text
         print ('Your login date is: ' + str(readLoginDate))
 
     def goDasboard(self):
 
         try:
-            self.test.driver.find_element(By.XPATH,"//div[2]/div[text()='Dashboard']").click()
+            self.driver.find_element(By.XPATH,"//div[2]/div[text()='Dashboard']").click()
             time.sleep(1)
-            # self.test.driver.back()
             print("You have access to Dashboard")
 
         except:
@@ -44,9 +45,9 @@ class UserRolesAcces():
     def goAgencies(self):
 
         try:
-            self.test.driver.find_element(By.XPATH,"//div[text()='Agencies']").click()
+            self.driver.find_element(By.XPATH,"//div[text()='Agencies']").click()
             time.sleep(1)
-            self.test.driver.back()
+            self.driver.back()
             print("You have access to Agencies")
 
         except:
@@ -55,9 +56,9 @@ class UserRolesAcces():
     def goHubs(self):
 
         try:
-            self.test.driver.find_element(By.XPATH,"//div[text()='Hubs']").click()
+            self.driver.find_element(By.XPATH,"//div[text()='Hubs']").click()
             time.sleep(1)
-            self.test.driver.back()
+            self.driver.back()
             print("You have access to Hubs")
 
         except:
@@ -66,9 +67,9 @@ class UserRolesAcces():
     def goVenues(self):
 
         try:
-            self.test.driver.find_element(By.XPATH,"//div[text()='Venues']").click()
+            self.driver.find_element(By.XPATH,"//div[text()='Venues']").click()
             time.sleep(1)
-            self.test.driver.back()
+            self.driver.back()
             print("You have access to Venues")
 
         except:
@@ -77,9 +78,9 @@ class UserRolesAcces():
     def goUAV(self):
 
         try:
-            self.test.driver.find_element(By.XPATH,"//div[text()='UAV']").click()
+            self.driver.find_element(By.XPATH,"//div[text()='UAV']").click()
             time.sleep(1)
-            self.test.driver.back()
+            self.driver.back()
             print("You have access to UAV")
 
         except:
@@ -88,9 +89,9 @@ class UserRolesAcces():
     def goMission(self):
 
         try:
-            self.test.driver.find_element(By.XPATH,"//div[text()='Missions']").click()
-            time.sleep(2)
-            self.test.driver.back()
+            self.driver.find_element(By.XPATH,"//div[text()='Missions']").click()
+            time.sleep(1)
+            self.driver.back()
             print("You have access to Missions")
 
         except:
@@ -99,20 +100,31 @@ class UserRolesAcces():
     def goClient(self):
 
         try:
-            self.test.driver.find_element(By.XPATH,"//div[text()='Clients']").click()
-            time.sleep(2)
-            self.test.driver.back()
+            self.driver.find_element(By.XPATH,"//div[text()='Clients']").click()
+            time.sleep(1)
+            self.driver.back()
             print("You have access to Clients")
 
         except:
             print("Clients not found because you don't have access")
 
+    def goClientevent(self):
+
+        try:
+            self.driver.find_element(By.XPATH,"//div[text()='Client Events']").click()
+            time.sleep(1)
+            self.driver.back()
+            print("You have access to Clients Event")
+
+        except:
+            print("Clients Event not found because you don't have access")
+
     def goAlerts(self):
 
         try:
-            self.test.driver.find_element(By.XPATH, "//div[text()='Alerts']").click()
+            self.driver.find_element(By.XPATH, "//div[text()='Alerts']").click()
             time.sleep(1)
-            self.test.driver.back()
+            self.driver.back()
             print("You have access to Alerts")
 
         except:
@@ -121,9 +133,9 @@ class UserRolesAcces():
     def goDictionaries(self):
 
         try:
-            self.test.driver.find_element(By.XPATH,"//div[text()='Dictionaries']").click()
+            self.driver.find_element(By.XPATH,"//div[text()='Dictionaries']").click()
             time.sleep(1)
-            self.test.driver.back()
+            self.driver.back()
             print("You have access to Dictionaries")
 
         except:
@@ -132,9 +144,9 @@ class UserRolesAcces():
     def goUsers(self):
 
         try:
-            self.test.driver.find_element(By.XPATH,"//div[text()='Users']").click()
+            self.driver.find_element(By.XPATH,"//div[text()='Users']").click()
             time.sleep(1)
-            self.test.driver.back()
+            self.driver.back()
             print("You have access to Users")
 
         except:
@@ -143,9 +155,9 @@ class UserRolesAcces():
     def goLoginEvents(self):
 
         try:
-            self.test.driver.find_element(By.XPATH,"//div[text()='Login events']").click()
+            self.driver.find_element(By.XPATH,"//div[text()='Login events']").click()
             time.sleep(1)
-            self.test.driver.back()
+            self.driver.back()
             print("You have access to Login events")
 
         except:
@@ -154,9 +166,9 @@ class UserRolesAcces():
     def goSystemStatus(self):
 
         try:
-            self.test.driver.find_element(By.XPATH,"//div[text()='System Status']").click()
+            self.driver.find_element(By.XPATH,"//div[text()='System Status']").click()
             time.sleep(1)
-            self.test.driver.back()
+            self.driver.back()
             print("You have access to System Status")
 
         except:
@@ -165,48 +177,58 @@ class UserRolesAcces():
     def goBilboStatus(self):
 
         try:
-            self.test.driver.find_element(By.XPATH,"//div[text()='Bilbo Status']").click()
+            self.driver.find_element(By.XPATH,"//div[text()='Bilbo Status']").click()
             time.sleep(1)
-            self.test.driver.back()
+            self.driver.back()
             print("You have access to Bilbo Status")
 
         except:
             print("Bilbo Status not found because you don't have access")
 
-    def logOut(self):
-
-        try:
-            avatar = self.test.driver.find_element(By.XPATH, "//i[text()='person']")
-            avatar.click()
-            logOut = self.test.driver.find_element(By.XPATH, "//a[@href='/login']")
-            logOut.click()
-            print('Successfully logged out')
-            time.sleep(2)
-        except:
-            print("Can't log out")
 
 
+    def runAll(self):
+
+        self.userNameFind()
+        # runTest.loginEvent()
+        self.goDasboard()
+        self.goAgencies()
+        self.goHubs()
+        self.goVenues()
+        self.goUAV()
+        self.goMission()
+        self.goClient()
+        self.goClientevent()
+        self.goAlerts()
+        self.goDictionaries()
+        self.goUsers()
+        self.goLoginEvents()
+        self.goSystemStatus()
+        self.goBilboStatus()
 
 
 
 
 
 
-runTest = UserRolesAcces()
-runTest.logIn()
-runTest.userNameFind()
-# runTest.loginEvent()
-runTest.goDasboard()
-runTest.goAgencies()
-runTest.goHubs()
-runTest.goVenues()
-runTest.goUAV()
-runTest.goMission()
-runTest.goClient()
-runTest.goAlerts()
-runTest.goDictionaries()
-runTest.goUsers()
-runTest.goLoginEvents()
-runTest.goSystemStatus()
-runTest.goBilboStatus()
-runTest.logOut()
+
+
+#
+# runTest = UserRolesAcces()
+# runTest.logIn()
+# runTest.userNameFind()
+# # runTest.loginEvent()
+# runTest.goDasboard()
+# runTest.goAgencies()
+# runTest.goHubs()
+# runTest.goVenues()
+# runTest.goUAV()
+# runTest.goMission()
+# runTest.goClient()
+# runTest.goAlerts()
+# runTest.goDictionaries()
+# runTest.goUsers()
+# runTest.goLoginEvents()
+# runTest.goSystemStatus()
+# runTest.goBilboStatus()
+# runTest.logOut()
