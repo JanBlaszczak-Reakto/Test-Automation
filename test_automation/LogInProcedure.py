@@ -40,6 +40,7 @@ class PositiveLoginTest:
             logInButton.click()
             time.sleep(1)
             print('\nUser:' + str(self.userName) + ' is Correct\n')
+
         except:
             print('\nUser:' + str(self.userName) + ' is not Found\n')
 
