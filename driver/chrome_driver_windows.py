@@ -1,11 +1,11 @@
-from selenium import  webdriver
+from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as Service
 import time
 
 class RunChromeTest():
 
     def test(self):
-        chrome_service = Service(executable_path="C:\\Users\\dell\\workspace_python\\SeleniumWDTutorial\\drivers\\chromedriver.exe")
+        chrome_service = Service(executable_path="C:\\Users\\Dell\\Documents\\GitHub\\Test-Automation\\driver\\chromedriver.exe")
         #Instantiate Browser
         driver = webdriver.Chrome(service=chrome_service)
         #Open the provided URL
