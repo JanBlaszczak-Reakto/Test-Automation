@@ -1,26 +1,11 @@
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
-from LogIn import PositiveLoginTest
 
 
 class UserRolesAccess:
 
     def __init__(self, driver):
         self.driver = driver
-
-    def grabLastSuccessfullLoginTime(self):
-        time.sleep(1)
-        self.driver.refresh()
-        self.driver.find_element(By.XPATH, "//div[text()='Login events']").click()
-        time.sleep(1)
-        sortLoginDate = self.driver.find_element(By.XPATH, "//div[@id='q-app']//th[4]")
-        sortLoginDate.click()
-        sortLoginDate.click()
-        time.sleep(1)
-        findLoginDate = self.driver.find_element(By.XPATH, "//div[@id='q-app']//tr[1]/td[4]")
-        readLoginDate = findLoginDate.text
-        print('Your login date is: ' + str(readLoginDate))
 
     def checkAccessToDashboard(self):
 
@@ -181,7 +166,6 @@ class UserRolesAccess:
 
     def checkAccessToAllPages(self):
 
-        # runTest.loginEvent()
         self.checkAccessToDashboard()
         self.checkAccessToCRM()
         self.checkAccessToHubs()
@@ -194,23 +178,3 @@ class UserRolesAccess:
         self.checkAccessToLoginEvents()
         self.checkAccessToSystemStatus()
         self.checkAccessToBilboStatus()
-
-#
-# runTest = UserRolesAcces()
-# runTest.logIn()
-# runTest.userNameFind()
-# # runTest.loginEvent()
-# runTest.goDasboard()
-# runTest.goAgencies()
-# runTest.goHubs()
-# runTest.goVenues()
-# runTest.goUAV()
-# runTest.goMission()
-# runTest.goClient()
-# runTest.goAlerts()
-# runTest.goDictionaries()
-# runTest.goUsers()
-# runTest.goLoginEvents()
-# runTest.goSystemStatus()
-# runTest.goBilboStatus()
-# runTest.logOut()
