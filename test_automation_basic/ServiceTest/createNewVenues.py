@@ -37,15 +37,15 @@ class CreateNewVenues:
             print("You can't add New Venue")
             return False
 
-    def addVenueName(self):
+    def addVenueName(self, venueName):
         newNameField = self.driver.find_element(By.XPATH, "//label")
-        newNameField.send_keys('New Venue')
-
+        newNameField.send_keys(venueName)
 
     def clickSave(self):
+        saveButton = self.driver.find_element(By.XPATH, "//button[2]")
+        saveButton.click()
+        time.sleep(2)
         try:
-            self.driver.find_element(By.XPATH, "//button[2]").click()
-            time.sleep(2)
             self.driver.find_element(By.XPATH, "//div[text()='VEN-?']")
             print("You can't save new Venue because this name is already taken!")
         except:
@@ -55,10 +55,10 @@ class CreateNewVenues:
         self.driver.find_element(By.XPATH, "//button[3]").click()
         self.driver.back()
 
-    def executeAddNewVenueProcedure(self):
+    def executeAddNewVenueProcedure(self, venueName):
         if not self.goToCRM(): return
         if not self.goToVenues(): return
         if not self.clickAddNewVenue(): return
-        self.addVenueName()
+        self.addVenueName(venueName)
         self.clickSave()
         self.clickCancel()

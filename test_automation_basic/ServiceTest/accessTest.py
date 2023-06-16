@@ -28,16 +28,14 @@ class AccessTest():
         test = PositiveLoginTest(self.driver)
         test.executeLoginProcedure(login, password)
 
-
-
     def checkUserRoleAccessRestrictions(self):
 
         access = UserRolesAccess(self.driver)
         access.checkAccessToAllPages()
 
-    def checkRestrictonsToAddNewVenue(self):
+    def checkRestrictonsToAddNewVenue(self, venueName):
         newVenues = CreateNewVenues(self.driver)
-        newVenues.executeAddNewVenueProcedure()
+        newVenues.executeAddNewVenueProcedure(venueName)
 
     def checkRestrictonsToAddNewClient(self):
         newClient = CreateNewClient(self.driver)
@@ -59,17 +57,10 @@ class AccessTest():
         self.openService()
         self.logIn('pilot@reakto.eu', 'pilot')
         self.checkRestrictonsToAddNewClient()
-        self.checkRestrictonsToAddNewVenue()
+        self.checkRestrictonsToAddNewVenue("New venue")
         self.checkUserRoleAccessRestrictions()
         self.logOut()
 
 
-runTest = AccessTest()  # dodac metode do wywoływania
-# runTest.openService()
-# runTest.logIn('pilot@reakto.eu', 'pilot')
-# # runTest.checkRestrictonsToAddNewClient()
-# runTest.checkRestrictonsToAddNewVenue()
-# # runTest.checkUserRoleAccessRestrictions()
-# runTest.logOut()
+runTest = AccessTest()
 runTest.startTest()
-
